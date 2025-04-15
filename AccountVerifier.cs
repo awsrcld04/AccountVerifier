@@ -204,26 +204,22 @@ namespace AccountVerifier
 
         static void Main(string[] args)
         {
-            if (funcLicenseCheck())
+            if (args.Length == 0)
             {
-                if (args.Length == 0)
+                Console.WriteLine("Parameters must be specified to run AccountVerifier.");
+                Console.WriteLine("Run AccountVerifier -? to get the parameter syntax.");
+            }
+            else
+            {
+                if (args[0] == "-?")
                 {
-                    Console.WriteLine("Parameters must be specified to run AccountVerifier.");
-                    Console.WriteLine("Run AccountVerifier -? to get the parameter syntax.");
+                    funcPrintParameterSyntax();
                 }
                 else
                 {
-                    if (args[0] == "-?")
-                    {
-                        funcPrintParameterSyntax();
-                    }
-                    else
-                    {
-                        funcReadInput(args[0]);
-                    }
+                    funcReadInput(args[0]);
                 }
             }
-
         }
     }
 }
